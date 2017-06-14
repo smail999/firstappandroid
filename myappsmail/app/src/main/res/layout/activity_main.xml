@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.formation.myappsmail.MainActivity"
+    android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="211dp"
+            android:src="@drawable/zeldaimg" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="34dp" />
+
+        <EditText
+            android:id="@+id/pseudoInputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Name" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="135dp" />
+
+        <Button
+            android:id="@+id/connexionButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/connexionButton" />
+
+    </LinearLayout>
+

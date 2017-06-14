@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myappsmail</string>
+    <string name="total">SEND</string>
+    <string name="connexionButton">Connexion</string>
+</resources>
