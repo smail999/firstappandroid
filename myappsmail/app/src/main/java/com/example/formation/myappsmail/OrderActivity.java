@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +17,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     int chantilly = 0;
     int chocolat = 0 ;
     int numberfinal = 0 ;
+
+    DatabaseHelper db = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         Button buttonmoinchocolat = (Button) findViewById(R.id.buttonChocolatMoin);
         Button commendebutton = (Button) findViewById(R.id.buttonCommander);
 
+
         buttonpluscoffe.setOnClickListener(this);
         buttonmoincoffe.setOnClickListener(this);
         buttonpluschantilly.setOnClickListener(this);
@@ -46,6 +51,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         buttonpluschocolat.setOnClickListener(this);
         buttonmoinchocolat.setOnClickListener(this);
         commendebutton.setOnClickListener(this);
+
 
 
 
@@ -176,6 +182,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
 
+
+
         }
 
     }
@@ -188,4 +196,37 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         email.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(Intent.createChooser(email, "Choisir le logiciel"));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true ;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.action_delete:
+
+
+                return true;
+
+            case R.id.action_save:
+
+                return true;
+
+            case R.id.action_liste:
+
+                Context context1 = getApplicationContext();
+
+                Intent intent = new Intent(context1, ListeActivity.class);
+                startActivity(intent);
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

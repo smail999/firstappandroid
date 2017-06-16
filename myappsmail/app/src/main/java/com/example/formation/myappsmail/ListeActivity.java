@@ -19,14 +19,33 @@ public class ListeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_liste);
 
         mListView = (ListView) findViewById(R.id.listView);
 
-        //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
-        //Contenant une TextView avec comme identifiant "@android:id/text1"
-
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>( MainActivity.this ,android.R.layout.simple_list_item_1, prenoms);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListeActivity.this,android.R.layout.simple_list_item_1,prenoms);
         mListView.setAdapter(adapter);
+
+
+
+    // USE DataBaseHelper
+
+    List<Contact> orders = genererOrders();
+    OrderAdapter adapter = new OrderAdapter(ImportActivity.this,0, orders);
+        listView.setAdapter(adapter);
+}
+    private List<Order> genererOrders(){
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
+        List<Order> orders = dataBaseHelper.getAllOrders();
+
+        Log.d("IMPORT LIST ORDERS",orders.toString() );
+
+        /*List<Order> orders = new ArrayList<Order>();
+
+        orders.add(new Order("4", "3","2", "1", "5"));
+        orders.add(new Order("9", "9","9", "9", "774"));
+        orders.add(new Order("2", "0","3", "1", "5"));*/
+
+        return orders;
     }
 }
